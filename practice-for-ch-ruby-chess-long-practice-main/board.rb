@@ -2,10 +2,15 @@ require_relative "piece"
 
 class Board
 
+    attr_accessor :rows 
 
     def initialize
-        @rows = Array.new(8) { Array.new(8, Piece.new(color, board, pos))}
-
+        @rows = Array.new(8) { Array.new(8, Piece.new())}
+        (2..5).each do |i|
+            (0..7).each do |j|
+                @rows[i][j] = nil 
+            end
+        end
         # @null_piece = Null_piece.new()
     end
 
@@ -14,9 +19,9 @@ class Board
         @rows[row][col]
     end 
 
-    def []=(position,value)
+    def []=(position,piece)
         row, col = position 
-        @rows[row][col] = value 
+        @rows[row][col] = piece 
     end 
 
     def move_piece(start_pos,end_pos)
@@ -29,15 +34,8 @@ class Board
     
         # self[start_pos] = nil
         # self[end_pos] = start
-        
 
         self[start_pos],self[end_pos] = self[end_pos],self[start_pos]
     end
 
-
-
-    def fill_rows 
-        @rows
-
-    end 
 end 
