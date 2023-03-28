@@ -1,7 +1,7 @@
 require_relative "piece"
 
 class Board
-
+    "hel"
     attr_accessor :rows 
 
     def initialize
