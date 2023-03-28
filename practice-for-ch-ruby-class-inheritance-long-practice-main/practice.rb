@@ -1,6 +1,6 @@
 class Employee 
 
-    # include Bonus 
+    attr_accessor :salary
 
     def initialize(name, title, salary, boss)
         @name = name 
@@ -10,45 +10,32 @@ class Employee
 
     end 
 
-    # def bonus(multiplier)
-    #     bonus = @salary * multiplier 
-    # end 
-
+    def bonus(multiplier)
+        salary_sum = 0
+        if !self.is_a?(Manager)
+            return @salary * multiplier
+        else
+            @assigned_employees.each do |employee|
+                salary_sum += employee.salary
+        end
+        return salary_sum * multiplier
+        end 
+    end 
 end 
 
 class Manager < Employee
 
-    # include Bonus 
-
-    def initialize(name, title, salary, boss)
+    def initialize(name, title, salary, boss,assigned_employees)
         super(name, title, salary, boss)
-        @assigned_employees = []
+        @assigned_employees = assigned_employees
     end 
 
-    def manager_bonus
-        salary_sum = 0
-        @assigned_employees.each do |employee|
-           salary_sum += employee.salary 
-        end 
-        salary_sum.bonus(multiplier) 
-    end 
 
 end 
 
-# module Bonus 
-#     def bonus(multiplier)
-#         bonus = @salary * multiplier 
-#     end 
-
-# end 
 
 
-dave = Employee.new("dave", "TA",10,000,"Ned",)
-ned = Employee.new("ned", "TA",10,000,"Ned",)
-darren = Manager.new("darren", "TA-manager",10,000,"jules",)
-jules = Manager.new("jules", "founder",10,000)
-
-# dave.bonus(5)
-# ned.bonus(5)
-# darrren.bonus(5)
-# jules.bonus(5)
+dave = Employee.new("dave", "TA",10_000,"Ned",)
+ned = Employee.new("ned", "TA",10_000,"Ned",)
+darren = Manager.new("darren", "TA-manager",10_000,"jules",[dave,ned])
+jules = Manager.new("jules", "founder",10_000, nil,[darren,ned,dave])
