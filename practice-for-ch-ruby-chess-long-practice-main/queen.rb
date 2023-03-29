@@ -13,8 +13,6 @@ class Queen < Piece
     # end
 
     def move_dirs
-        # @move_dirs <<  HORIZONTAL_DIRS 
-        # @move_dirs << DIAGONAL_DIRS 
         HORIZONTAL_DIRS + DIAGONAL_DIRS
     end
 

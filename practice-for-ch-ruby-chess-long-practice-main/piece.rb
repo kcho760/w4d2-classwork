@@ -6,8 +6,9 @@ class Piece
         @board = board 
         @color = color 
         @pos = pos 
-        @move_dirs = []
     end 
+
+    
 
     # def moves 
     #     possible_moves = []
