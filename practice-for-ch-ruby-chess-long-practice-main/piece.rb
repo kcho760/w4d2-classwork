@@ -2,9 +2,11 @@
 
 class Piece
 
+    @@color = [:Black,:White,:Null]
+    
     attr_accessor :pos, :color, :board
     
-    def initialize(color, board, pos)
+    def initialize(color=:nul, board, pos)
         @board = board 
         @color = color 
         @pos = pos 

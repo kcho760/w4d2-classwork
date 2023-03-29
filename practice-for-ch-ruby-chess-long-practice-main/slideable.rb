@@ -41,10 +41,10 @@ module Slideable
             if @board[row+dx][col+dy].color == self.color #our piece #board[row+dx][col+dy]
                 break
             elsif @board[row+dx][col+dy].color != self.color #enemy piece
-                unblocked_moves << @rows[row+dx][col+dy]
+                unblocked_moves << @board[row+dx][col+dy]
                 break
             else
-                unblocked_moves << @rows[row+dx][col+dy]
+                unblocked_moves << @board[row+dx][col+dy]
             end 
         end
         unblocked_moves

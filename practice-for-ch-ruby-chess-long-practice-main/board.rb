@@ -7,7 +7,7 @@ class Board
         @rows = Array.new(8) { Array.new(8, Piece.new())}
         (2..5).each do |i|
             (0..7).each do |j|
-                @rows[i][j] = nil 
+                @rows[i][j] = Nullpiece.new
             end
         end
         # @null_piece = Null_piece.new()
