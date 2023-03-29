@@ -1,9 +1,12 @@
-class Piece 
+class Piece
 
+    attr_accessor :pos, :color, :board
+    
     def initialize(color, board, pos)
         @board = board 
-        @color = symbol 
+        @color = color 
         @pos = pos 
+        @move_dirs = []
     end 
 
     # def moves 
