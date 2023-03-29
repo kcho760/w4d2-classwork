@@ -17,34 +17,34 @@ module Slideable
 
     def moves
         pos_moves = []
-        #how do we call move_dirs from subclass \
+        #how do we call move_dirs from subclass 
         row, col = self.pos 
         self.move_dirs.each do |delta|
-            #loop do  
             dx = delta[0]
             dy = delta[1]
             pos_moves << grow_unblocked_moves_in_dir(dx,dy)
         end
-
         pos_moves 
-
     end 
     
     def grow_unblocked_moves_in_dir(dx,dy)
         unblocked_moves = []
         row, col = self.pos
         loop do 
-            if @board[dx + row][dx + col].color == self.color #our piece
+            pos = [row+dx,col+dy]
+            if pos[0] > 7 || pos[0] < 0
+            break
+            end
+            if pos[1] > 7 || pos[1] < 0
+            break
+            end 
+            if @board[row+dx][col+dy].color == self.color #our piece #board[row+dx][col+dy]
                 break
-            elsif @board[dx + row][dx + col].color != self.color #enemy piece
-                unblocked_moves << [pot_pos]
-                break
-            elsif @board[dx + row] > 7 || @board[dx + row]< 0
-                break
-            elsif @board[dx + col] > 7 || @board[dx + col] < 0
+            elsif @board[row+dx][col+dy].color != self.color #enemy piece
+                unblocked_moves << @rows[row+dx][col+dy]
                 break
             else
-                unblocked_moves << @board[dx + row][dx + col]
+                unblocked_moves << @rows[row+dx][col+dy]
             end 
         end
         unblocked_moves
