@@ -1,4 +1,4 @@
-class Nullpiece
+class Null_piece < Piece
     include Singleton
 
     def initialize

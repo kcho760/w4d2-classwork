@@ -4,12 +4,18 @@ class Board
     attr_accessor :rows 
 
     def initialize
-        @rows = Array.new(8) { Array.new(8, Piece.new())}
-        (2..5).each do |i|
+        @rows = Array.new(8) { Array.new(8)}
+        (0..7).each do |i|
             (0..7).each do |j|
-                @rows[i][j] = Nullpiece.new
+                @rows[i][j] = Queen.new(:Black,@rows,[i,j])
             end
         end
+
+        # (2..5).each do |i|
+        #     (0..7).each do |j|
+        #         @rows[i][j] = Null_piece.new
+        #     end
+        # end
         # @null_piece = Null_piece.new()
     end
 
