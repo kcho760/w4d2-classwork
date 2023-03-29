@@ -1,0 +1,9 @@
+class Queen < Piece
+
+
+
+
+
+
+
+end 

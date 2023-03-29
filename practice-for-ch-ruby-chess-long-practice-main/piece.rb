@@ -1,7 +1,9 @@
 class Piece 
 
-    def initialize(board)
+    def initialize(color, board, pos)
         @board = board 
+        @color = symbol 
+        @pos = pos 
     end 
 
 
@@ -18,19 +20,30 @@ class Piece
         possible_moves 
     end 
 
-    module Slideable
-        if self.is_a?(Bishop) || self.is_a?(Queen)
-             
-            Diagonal 
-        end 
-        if self.is_a?(Rook) || self.is_a?(Queen)
-            Horizontal
-        end 
 
-    end 
 
-    module Stepable 
+    
+    # module Slideable
+    #     if self.is_a?(Bishop) || self.is_a?(Queen)
+    #         move_dirs = [ 
+    #             []
 
-    end 
+
+
+
+
+
+    #         ]
+    #         Diagonal 
+    #     end 
+    #     if self.is_a?(Rook) || self.is_a?(Queen)
+    #         Horizontal
+    #     end 
+
+    # end 
+
+    # module Stepable 
+
+    # end 
 
 end
