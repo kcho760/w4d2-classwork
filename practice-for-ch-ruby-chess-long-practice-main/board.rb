@@ -5,18 +5,55 @@ class Board
 
     def initialize
         @rows = Array.new(8) { Array.new(8)}
-        (0..7).each do |i|
-            (0..7).each do |j|
-                @rows[i][j] = Queen.new(:Black,@rows,[i,j])
-            end
-        end
-
+        # (0..7).each do |i|
+        #     (0..7).each do |j|
+        #         @rows[i][j] = Queen.new(:Black,@rows,[i,j])
+        #     end
+        # end 
         # (2..5).each do |i|
         #     (0..7).each do |j|
-        #         @rows[i][j] = Null_piece.new
+        #         @rows[i][j] = Null_piece.new 
         #     end
+        # end 
+        # @rows[1].each { |ele| ele = Pawn.new }
+        # @rows[6].each { |ele| ele = Pawn.new }
+        
+        # (0..7).each do |j|
+        #     if j == 0 
+        #         @rows[0][j] = Rook.new
+        #         @rows[7][j] = Rook.new
+        #     end 
+        #     if j == 1 
+        #         @rows[0][j] = Knight.new
+        #         @rows[7][j] = Knight.new
+        #     end 
+        #     if j == 2 
+        #         @rows[0][j] = Bishop.new
+        #         @rows[7][j] = Bishop.new
+        #     end 
+        #     if j == 3 
+        #         @rows[0][j] = Queen.new
+        #         @rows[7][j] = King.new
+        #     end 
+        #     if j == 4 
+        #         @rows[0][j] = King.new 
+        #         @rows[7][j] = Queen.new
+        #     end 
+        #     if j == 5 
+        #         @rows[0][j] = Bishop.new 
+        #         @rows[7][j] = Bishop.new
+        #     end 
+        #     if j == 6
+        #         @rows[0][j] = Knight.new 
+        #         @rows[7][j] = Knight.new
+        #     end 
+        #     if j == 7 
+        #         @rows[0][j] = Rook.new  
+        #         @rows[7][j] = Rook.new
+        #     end 
+
         # end
-        # @null_piece = Null_piece.new()
+
     end
 
     def [](position)

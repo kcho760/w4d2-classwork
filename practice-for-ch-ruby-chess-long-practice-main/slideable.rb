@@ -38,13 +38,13 @@ module Slideable
             if pos[1] > 7 || pos[1] < 0
             break
             end 
-            if @board[row+dx][col+dy].color == self.color #our piece #board[row+dx][col+dy]
+            if self.board[row+dx][col+dy].color == self.color #our piece #board[row+dx][col+dy]
                 break
-            elsif @board[row+dx][col+dy].color != self.color #enemy piece
-                unblocked_moves << @board[row+dx][col+dy]
+            elsif self.board[row+dx][col+dy].color != self.color #enemy piece
+                unblocked_moves << self.board[row+dx][col+dy]
                 break
             else
-                unblocked_moves << @board[row+dx][col+dy]
+                unblocked_moves << self.board[row+dx][col+dy]
             end 
         end
         unblocked_moves
